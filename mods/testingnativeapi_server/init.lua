@@ -21,8 +21,6 @@ dofile(modpath .. "/nodetimer.lua")
 dofile(modpath .. "/rollback.lua")
 dofile(modpath .. "/object.lua")
 
-
-
 -- Load helper files
 dofile(modpath .. "/other.lua")
 dofile(modpath .. "/server_test.lua")

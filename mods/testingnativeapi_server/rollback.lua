@@ -6,7 +6,7 @@ minetest.register_chatcommand("lua_rollback_get_actions", {
 	description = "Invokes lua_api > l_rollback:l_rollback_get_node_actions",
 	-- self == this
 	func = function(self)
-		local pos = {x = 0, y = 32, z = 0}
+		local pos = {x = -162, y = 5, z = 68}
 		local range = 10
 		--time_t seconds = (time_t)luaL_checknumber(L, 3);
 		local seconds = 5
@@ -16,14 +16,14 @@ minetest.register_chatcommand("lua_rollback_get_actions", {
 		return true, "Success, l_rollback_get_node_actions() returned: "..dump(a)
 
 	end
-})
+})                                                                  
 
 minetest.register_chatcommand("native_rollback_get_actions", {
 	-- Invokes lua_api > l_rollback:l_rollback_get_node_actions
 	description = "Invokes native_api > n_rollback:l_rollback_get_node_actions",
 	-- self == this
 	func = function(self)
-		local pos = {x = 0, y = 32, z = 0}
+		local pos = {x = -162, y = 5, z = 68}
 		local range = 10
 		--time_t seconds = (time_t)luaL_checknumber(L, 3);
 		local seconds = 5
@@ -41,7 +41,7 @@ minetest.register_chatcommand("rollback_get_actions", {
 	description = "Invokes native_api > n_rollback:l_rollback_get_node_actions",
 	-- self == this
 	func = function(self)
-		local pos = {x = 0, y = 32, z = 0}
+		local pos = {x = -162, y = 5, z = 68}
 		local range = 10
 		--time_t seconds = (time_t)luaL_checknumber(L, 3);
 		local seconds = 5
@@ -56,7 +56,6 @@ minetest.register_chatcommand("rollback_get_actions", {
 			end
 		end
 		if same then
-			print("NATIVE: \n"..dump(n) .. "\n LUA: \n"..dump(l))
 			return true, "Success, n_rollback_get_node_actions() and l_rollback_get_node_actions() returned the same"
 		else
 			return true, "Failure, n_rollback_get_node_actions() and l_rollback_get_node_actions() returned differently \n NATIVE: \n"..dump(n) .. "\n LUA: \n"..dump(l).. "\n META DATA N" ..dump(getmetatable(n)) .. "\n META DATA L \n"..dump(getmetatable(l))
